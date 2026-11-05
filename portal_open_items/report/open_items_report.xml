@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_report_open_items" model="ir.actions.report">
+        <field name="name">Open items</field>
+        <field name="model">res.partner</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">portal_open_items.report_open_items</field>
+        <field name="report_file">portal_open_items.report_open_items</field>
+        <field name="paperformat_id" ref="base.paperformat_euro"/>
+    </record>
+
+    <template id="report_open_items">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <t t-set="address">
+                    <address class="mb-0" t-field="docs.commercial_partner_id"
+                             t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}'/>
+                </t>
+                <div class="page">
+                    <h2>Open items as of <span t-out="stichtag" t-options="{'widget': 'date'}"/></h2>
+                    <p t-if="not rows" class="mt-4">There are no open items.</p>
+                    <table t-if="rows" class="table table-sm o_main_table mt-4">
+                        <thead>
+                            <tr>
+                                <th>Document</th>
+                                <th>Date</th>
+                                <th>Due date</th>
+                                <th class="text-end">Amount</th>
+                                <th class="text-end">Open</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="rows" t-as="row" t-att-class="'fw-bold' if row['overdue'] else ''">
+                                <td>
+                                    <span t-out="row['name']"/>
+                                    <div t-if="row['kind'] == 'credit'" class="small">Credit note</div>
+                                    <div t-elif="row['kind'] == 'payment'" class="small">Payment / credit</div>
+                                    <div t-if="row['ref'] and row['ref'] != row['name']" class="small" t-out="row['ref']"/>
+                                </td>
+                                <td><span t-out="row['date']" t-options="{'widget': 'date'}"/></td>
+                                <td>
+                                    <span t-if="row['due']" t-out="row['due']" t-options="{'widget': 'date'}"/>
+                                    <div t-if="row['overdue']" class="small"><t t-out="row['days']"/> days overdue</div>
+                                </td>
+                                <td class="text-end"><span t-out="row['amount']" t-options="{'widget': 'monetary', 'display_currency': row['currency']}"/></td>
+                                <td class="text-end"><span t-out="row['residual']" t-options="{'widget': 'monetary', 'display_currency': row['currency']}"/></td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <t t-foreach="totals" t-as="total">
+                                <tr class="fw-bold">
+                                    <td colspan="4" class="text-end">Balance <span t-if="len(totals) &gt; 1" t-out="total[0].name"/></td>
+                                    <td class="text-end"><span t-out="total[1]['residual']" t-options="{'widget': 'monetary', 'display_currency': total[0]}"/></td>
+                                </tr>
+                                <tr t-if="total[1]['overdue']">
+                                    <td colspan="4" class="text-end">Overdue items total</td>
+                                    <td class="text-end"><span t-out="total[1]['overdue']" t-options="{'widget': 'monetary', 'display_currency': total[0]}"/></td>
+                                </tr>
+                            </t>
+                        </tfoot>
+                    </table>
+                    <p class="small mt-3">Overdue items are printed in bold. A negative amount is a credit in your favour (credit note or payment not yet allocated to an invoice).</p>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

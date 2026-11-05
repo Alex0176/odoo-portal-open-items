@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_my_home_open_items" name="Open items entry" inherit_id="portal.portal_my_home" priority="40">
+        <xpath expr="//div[@id='portal_client_category']" position="before">
+            <t t-if="open_items_enabled" t-set="portal_client_category_enable" t-value="True"/>
+        </xpath>
+        <div id="portal_client_category" position="inside">
+            <t t-if="open_items_enabled" t-call="portal.portal_docs_entry">
+                <t t-set="icon" t-value="'/account/static/src/img/bill.svg'"/>
+                <t t-set="title">Open items</t>
+                <t t-set="url" t-value="'/my/open-items'"/>
+                <t t-set="text">Show open items of your company</t>
+                <t t-set="config_card" t-value="True"/>
+            </t>
+        </div>
+    </template>
+
+    <template id="portal_my_home_menu_open_items" name="Portal layout : open items menu entry" inherit_id="portal.portal_breadcrumbs">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="page_name == 'open_items'" class="breadcrumb-item active">Open items</li>
+        </xpath>
+    </template>
+
+    <template id="portal_my_open_items" name="Open items list">
+        <t t-call="portal.portal_layout">
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mt-3 mb-2">
+                <h3 class="m-0">Open items <span class="text-muted fs-5">- <t t-out="company_partner.name"/></span></h3>
+                <div class="d-print-none d-flex gap-2">
+                    <a class="btn btn-primary" t-attf-href="/my/open-items/pdf?stichtag=#{stichtag}"><i class="fa fa-download"/> Download PDF</a>
+                    <button type="button" class="btn btn-secondary" onclick="window.print()"><i class="fa fa-print"/> Print</button>
+                </div>
+            </div>
+            <form action="/my/open-items" method="get" class="d-print-none d-flex flex-wrap align-items-center gap-2 mb-3">
+                <label for="open_items_stichtag" class="mb-0">Open items as of</label>
+                <input type="date" id="open_items_stichtag" name="stichtag" class="form-control w-auto"
+                       t-att-value="stichtag" t-att-max="today" required="required"/>
+                <button type="submit" class="btn btn-secondary">Show</button>
+                <a t-if="stichtag != today" href="/my/open-items" class="btn btn-link">Today</a>
+            </form>
+            <p class="text-muted">Includes all contacts of your company.</p>
+            <p t-if="not rows" class="alert alert-info">There are no open items.</p>
+            <t t-if="rows" t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th>Document</th>
+                        <th>Date</th>
+                        <th>Due date</th>
+                        <th class="text-end">Amount</th>
+                        <th class="text-end">Open</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="rows" t-as="row">
+                        <tr t-att-class="'table-danger' if row['overdue'] else ''">
+                            <td>
+                                <a t-if="row['url']" t-att-href="row['url']"><t t-out="row['name']"/></a>
+                                <span t-else="" t-out="row['name']"/>
+                                <div t-if="row['kind'] == 'credit'" class="small text-muted">Credit note</div>
+                                <div t-elif="row['kind'] == 'payment'" class="small text-muted">Payment / credit</div>
+                                <div t-if="row['ref'] and row['ref'] != row['name']" class="small text-muted" t-out="row['ref']"/>
+                            </td>
+                            <td><span t-out="row['date']" t-options="{'widget': 'date'}"/></td>
+                            <td>
+                                <span t-if="row['due']" t-out="row['due']" t-options="{'widget': 'date'}"/>
+                                <div t-if="row['overdue']" class="small text-danger"><t t-out="row['days']"/> days overdue</div>
+                            </td>
+                            <td class="text-end"><span t-out="row['amount']" t-options="{'widget': 'monetary', 'display_currency': row['currency']}"/></td>
+                            <td class="text-end"><span t-out="row['residual']" t-options="{'widget': 'monetary', 'display_currency': row['currency']}"/></td>
+                        </tr>
+                    </t>
+                </tbody>
+                <tfoot>
+                    <t t-foreach="totals" t-as="total">
+                        <tr class="fw-bold">
+                            <td colspan="4" class="text-end">Balance <span t-if="len(totals) &gt; 1" t-out="total[0].name"/></td>
+                            <td class="text-end"><span t-out="total[1]['residual']" t-options="{'widget': 'monetary', 'display_currency': total[0]}"/></td>
+                        </tr>
+                        <tr t-if="total[1]['overdue']" class="text-danger">
+                            <td colspan="4" class="text-end">Overdue items total</td>
+                            <td class="text-end"><span t-out="total[1]['overdue']" t-options="{'widget': 'monetary', 'display_currency': total[0]}"/></td>
+                        </tr>
+                    </t>
+                </tfoot>
+            </t>
+            <p class="small text-muted mt-3">A negative amount is a credit in your favour (credit note or payment not yet allocated to an invoice).</p>
+        </t>
+    </template>
+</odoo>

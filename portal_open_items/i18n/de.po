@@ -1,0 +1,196 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* portal_open_items
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-05 17:16+0000\n"
+"PO-Revision-Date: 2026-11-05 17:16+0000\n"
+"Last-Translator: \n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
+msgid "<i class=\"fa fa-download\"/> Download PDF"
+msgstr "<i class=\"fa fa-download\"/> PDF herunterladen"
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
+msgid "<i class=\"fa fa-print\"/> Print"
+msgstr "<i class=\"fa fa-print\"/> Drucken"
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
+msgid ""
+"A negative amount is a credit in your favour (credit note or payment not yet"
+" allocated to an invoice)."
+msgstr ""
+"Ein negativer Betrag ist ein Guthaben zu Ihren Gunsten (Gutschrift oder noch"
+" keiner Rechnung zugeordnete Zahlung)."
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.report_open_items
+msgid "Amount"
+msgstr "Betrag"
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.report_open_items
+msgid "Balance"
+msgstr "Saldo"
+
+#. module: portal_open_items
+#: model:ir.model,name:portal_open_items.model_res_partner
+msgid "Contact"
+msgstr "Kontakt"
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.report_open_items
+msgid "Credit note"
+msgstr "Gutschrift"
+
+#. module: portal_open_items
+#: model:ir.model,website_form_label:portal_open_items.model_res_partner
+msgid "Customer"
+msgstr "Kunde"
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.report_open_items
+msgid "Date"
+msgstr "Datum"
+
+#. module: portal_open_items
+#: model:ir.model.fields,field_description:portal_open_items.field_report_portal_open_items_report_open_items__display_name
+#: model:ir.model.fields,field_description:portal_open_items.field_res_partner__display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.report_open_items
+msgid "Document"
+msgstr "Beleg"
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.report_open_items
+msgid "Due date"
+msgstr "Fällig am"
+
+#. module: portal_open_items
+#: model:ir.model.fields,field_description:portal_open_items.field_report_portal_open_items_report_open_items__id
+#: model:ir.model.fields,field_description:portal_open_items.field_res_partner__id
+msgid "ID"
+msgstr "ID"
+
+#. module: portal_open_items
+#: model:ir.model.fields,help:portal_open_items.field_res_partner__portal_open_items
+#: model:ir.model.fields,help:portal_open_items.field_res_users__portal_open_items
+msgid ""
+"If this contact logs into the portal, the list of open items of the whole "
+"company (all contacts of the commercial entity) is shown. Off by default."
+msgstr ""
+"Wenn sich dieser Kontakt im Portal anmeldet, wird die Offene-Posten-Liste "
+"des gesamten Unternehmens (alle Kontakte der Firma) angezeigt. Standardmäßig"
+" aus."
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
+msgid "Includes all contacts of your company."
+msgstr "Enthält alle Kontakte Ihres Unternehmens."
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.report_open_items
+msgid "Open"
+msgstr "Offen"
+
+#. module: portal_open_items
+#: model:ir.actions.report,name:portal_open_items.action_report_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_home_menu_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_home_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
+msgid "Open items"
+msgstr "Offene Posten"
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.report_open_items
+msgid "Open items as of"
+msgstr "Offene Posten per Stichtag"
+
+#. module: portal_open_items
+#: model:ir.model,name:portal_open_items.model_report_portal_open_items_report_open_items
+msgid "Open items report"
+msgstr "Offene-Posten-Liste"
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.report_open_items
+msgid ""
+"Overdue items are printed in bold. A negative amount is a credit in your "
+"favour (credit note or payment not yet allocated to an invoice)."
+msgstr ""
+"Überfällige Posten sind fett gedruckt. Ein negativer Betrag ist ein Guthaben"
+" zu Ihren Gunsten (Gutschrift oder noch keiner Rechnung zugeordnete "
+"Zahlung)."
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.report_open_items
+msgid "Overdue items total"
+msgstr "Summe überfälliger Posten"
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.report_open_items
+msgid "Payment / credit"
+msgstr "Zahlung / Guthaben"
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
+msgid "Show"
+msgstr "Anzeigen"
+
+#. module: portal_open_items
+#: model:ir.model.fields,field_description:portal_open_items.field_res_partner__portal_open_items
+#: model:ir.model.fields,field_description:portal_open_items.field_res_users__portal_open_items
+msgid "Show open items in portal"
+msgstr "Offene Postenliste im Portal anzeigen"
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_home_open_items
+msgid "Show open items of your company"
+msgstr "Offene Posten Ihres Unternehmens anzeigen"
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.report_open_items
+msgid "There are no open items."
+msgstr "Es gibt keine offenen Posten."
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
+msgid "Today"
+msgstr "Heute"
+
+#. module: portal_open_items
+#. odoo-python
+#: code:addons/portal_open_items/report/open_items_report.py:0
+msgid "You are not allowed to access these open items."
+msgstr "Sie dürfen diese offenen Posten nicht einsehen."
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.report_open_items
+msgid "days overdue"
+msgstr "Tage überfällig"

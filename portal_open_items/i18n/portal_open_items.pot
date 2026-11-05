@@ -1,0 +1,187 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* portal_open_items
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-05 17:16+0000\n"
+"PO-Revision-Date: 2026-11-05 17:16+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
+msgid "<i class=\"fa fa-download\"/> Download PDF"
+msgstr ""
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
+msgid "<i class=\"fa fa-print\"/> Print"
+msgstr ""
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
+msgid ""
+"A negative amount is a credit in your favour (credit note or payment not yet"
+" allocated to an invoice)."
+msgstr ""
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.report_open_items
+msgid "Amount"
+msgstr ""
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.report_open_items
+msgid "Balance"
+msgstr ""
+
+#. module: portal_open_items
+#: model:ir.model,name:portal_open_items.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.report_open_items
+msgid "Credit note"
+msgstr ""
+
+#. module: portal_open_items
+#: model:ir.model,website_form_label:portal_open_items.model_res_partner
+msgid "Customer"
+msgstr ""
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.report_open_items
+msgid "Date"
+msgstr ""
+
+#. module: portal_open_items
+#: model:ir.model.fields,field_description:portal_open_items.field_report_portal_open_items_report_open_items__display_name
+#: model:ir.model.fields,field_description:portal_open_items.field_res_partner__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.report_open_items
+msgid "Document"
+msgstr ""
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.report_open_items
+msgid "Due date"
+msgstr ""
+
+#. module: portal_open_items
+#: model:ir.model.fields,field_description:portal_open_items.field_report_portal_open_items_report_open_items__id
+#: model:ir.model.fields,field_description:portal_open_items.field_res_partner__id
+msgid "ID"
+msgstr ""
+
+#. module: portal_open_items
+#: model:ir.model.fields,help:portal_open_items.field_res_partner__portal_open_items
+#: model:ir.model.fields,help:portal_open_items.field_res_users__portal_open_items
+msgid ""
+"If this contact logs into the portal, the list of open items of the whole "
+"company (all contacts of the commercial entity) is shown. Off by default."
+msgstr ""
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
+msgid "Includes all contacts of your company."
+msgstr ""
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.report_open_items
+msgid "Open"
+msgstr ""
+
+#. module: portal_open_items
+#: model:ir.actions.report,name:portal_open_items.action_report_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_home_menu_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_home_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
+msgid "Open items"
+msgstr ""
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.report_open_items
+msgid "Open items as of"
+msgstr ""
+
+#. module: portal_open_items
+#: model:ir.model,name:portal_open_items.model_report_portal_open_items_report_open_items
+msgid "Open items report"
+msgstr ""
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.report_open_items
+msgid ""
+"Overdue items are printed in bold. A negative amount is a credit in your "
+"favour (credit note or payment not yet allocated to an invoice)."
+msgstr ""
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.report_open_items
+msgid "Overdue items total"
+msgstr ""
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.report_open_items
+msgid "Payment / credit"
+msgstr ""
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
+msgid "Show"
+msgstr ""
+
+#. module: portal_open_items
+#: model:ir.model.fields,field_description:portal_open_items.field_res_partner__portal_open_items
+#: model:ir.model.fields,field_description:portal_open_items.field_res_users__portal_open_items
+msgid "Show open items in portal"
+msgstr ""
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_home_open_items
+msgid "Show open items of your company"
+msgstr ""
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.report_open_items
+msgid "There are no open items."
+msgstr ""
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
+msgid "Today"
+msgstr ""
+
+#. module: portal_open_items
+#. odoo-python
+#: code:addons/portal_open_items/report/open_items_report.py:0
+msgid "You are not allowed to access these open items."
+msgstr ""
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.report_open_items
+msgid "days overdue"
+msgstr ""
