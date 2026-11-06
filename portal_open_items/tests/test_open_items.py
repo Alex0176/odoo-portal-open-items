@@ -120,6 +120,28 @@ class TestPortalOpenItems(HttpCase):
         early = [r["name"] for r in self.company._open_items_data(today - timedelta(days=30))["rows"]]
         self.assertNotIn(move.name, early, "not yet invoiced")
 
+    def test_stichtag_residual_after_partial_payments(self):
+        today = fields.Date.today()
+        move = self.env["account.move"].create({
+            "move_type": "out_invoice", "partner_id": self.company.id, "invoice_date": today - timedelta(days=20),
+            "invoice_date_due": today - timedelta(days=6), "ref": "Teilzahlung",
+            "invoice_line_ids": [Command.create(self._line("Teil", 100.0))],
+        })
+        move.action_post()
+        register = self.env["account.payment.register"].with_context(active_model="account.move", active_ids=move.ids)
+        register.create({"payment_date": today - timedelta(days=10), "amount": 40.0}).action_create_payments()
+        register.create({"payment_date": today - timedelta(days=2)}).action_create_payments()
+
+        def residual(day):
+            rows = [r for r in self.company._open_items_data(day)["rows"] if r["name"] == move.name]
+            return rows[0]["residual"] if rows else 0.0
+
+        self.assertEqual(residual(today - timedelta(days=15)), 100.0)
+        self.assertEqual(residual(today - timedelta(days=10)), 60.0, "the partial payment counts on its own day")
+        self.assertEqual(residual(today - timedelta(days=5)), 60.0)
+        self.assertEqual(residual(today - timedelta(days=2)), 0.0)
+        self.assertEqual(residual(today), 0.0)
+
     def test_stichtag_route_and_future_date(self):
         self.contact.portal_open_items = True
         move = self._dated_invoice_paid_later()
@@ -180,6 +202,10 @@ class TestPortalOpenItems(HttpCase):
         self.assertEqual(morale["late_days"], 44)
         self.assertFalse(morale["good"])
         self.assertEqual(morale["max_open_days"], 0)
+        earlier = firm._payment_morale(fields.Date.today() - timedelta(days=30))
+        self.assertEqual((earlier["count"], earlier["in_term"], earlier["within_week"], earlier["late"]), (6, 33, 33, 34),
+                         "payments made before the cut-off date are not open at the cut-off date")
+        self.assertEqual(earlier["max_open_overdue"], 16)
 
     def test_payment_morale_open_invoices(self):
         firm = self.env["res.partner"].create({"name": "Moral Offen GmbH", "is_company": True})

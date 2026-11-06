@@ -4,7 +4,7 @@
     "name": "Portal Open Items List",
     "summary": "Lets selected portal users see the open items (unpaid invoices, credit notes, payments on account) "
     "of their whole company in the customer portal",
-    "version": "19.0.1.1.0",
+    "version": "19.0.1.1.1",
     "category": "Accounting/Accounting",
     "author": "Biricon IT Services GmbH",
     "website": "https://github.com/Alex0176/odoo-portal-open-items",

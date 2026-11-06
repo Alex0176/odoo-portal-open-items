@@ -22,10 +22,10 @@ class ResPartner(models.Model):
     def _open_items_residual(self, line, stichtag):
         """Residual of a receivable line in its own currency as it was at the end of ``stichtag``."""
         residual = line.amount_currency
-        for partial in line.matched_debit_ids:
+        for partial in line.matched_credit_ids:
             if partial.max_date <= stichtag:
                 residual -= partial.debit_amount_currency
-        for partial in line.matched_credit_ids:
+        for partial in line.matched_debit_ids:
             if partial.max_date <= stichtag:
                 residual += partial.credit_amount_currency
         return residual
