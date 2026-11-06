@@ -16,6 +16,9 @@ too), marks overdue items, and shows the balance per currency.
   counts from the day it was reconciled.
 - **PDF:** *Download PDF* creates the list for the chosen date with the company's standard report layout; the page can
   also be printed.
+- **Payment morale:** above the list (page and PDF) the share of invoices paid in term (green), within a week after the
+  term (orange) and later (red, with the average days), the longest open time, a rating *good*/*poor* and the note that
+  customers with poor payment morale are switched to prepayment.
 - **Opt-in:** the option is off for everybody after the installation. Enable it on the contact (*Contacts* form, next to
   *Website*, users with the right *Billing*).
 - **Access:** only the own company, only with the option. The generic report route is protected the same way.

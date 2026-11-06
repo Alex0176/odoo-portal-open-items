@@ -194,3 +194,78 @@ msgstr "Sie dürfen diese offenen Posten nicht einsehen."
 #: model_terms:ir.ui.view,arch_db:portal_open_items.report_open_items
 msgid "days overdue"
 msgstr "Tage überfällig"
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.morale_block
+msgid "% were paid in the week after the payment term."
+msgstr "% wurden in der Woche nach Ablauf der Zahlungsfrist bezahlt."
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.morale_block
+msgid "% were paid later, on average after"
+msgstr "% wurden später bezahlt, durchschnittlich nach"
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.morale_block
+msgid "% were paid within the payment term."
+msgstr "% wurden innerhalb der Zahlungsfrist bezahlt."
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.report_open_items
+msgid "<b>Customers with poor payment morale are switched to prepayment.</b>"
+msgstr ""
+"<b>Kunden mit schlechter Zahlungsmoral werden auf Vorkasse umgestellt.</b>"
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.morale_block
+msgid ""
+"Based on the invoices of the last 12 months and all invoices still open."
+msgstr ""
+"Grundlage sind die Rechnungen der letzten 12 Monate und alle noch offenen "
+"Rechnungen."
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.morale_block
+msgid "Invoices have been open for up to"
+msgstr "Rechnungen sind bis zu"
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.morale_block
+msgid "No invoices of the last 12 months to rate."
+msgstr "Keine Rechnungen der letzten 12 Monate zu bewerten."
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.morale_block
+msgid "Payment morale"
+msgstr "Zahlungsmoral"
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.morale_block
+msgid "Rating of the payment morale:"
+msgstr "Bewertung der Zahlungsmoral:"
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.morale_block
+msgid "days ("
+msgstr "Tagen ("
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.morale_block
+msgid "days after the payment term)."
+msgstr "Tage nach Ablauf der Zahlungsfrist)."
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.morale_block
+msgid "days."
+msgstr "Tage offen."
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.morale_block
+msgid "good"
+msgstr "gut"
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.morale_block
+msgid "poor"
+msgstr "schlecht"

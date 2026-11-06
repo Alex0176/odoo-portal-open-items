@@ -6,3 +6,4 @@ payments on account, with due dates, overdue days and the balance.
 * The list can be **printed** or downloaded as a **PDF**.
 * It is switched **off by default** and enabled per contact (*Show open items in portal*), so nothing becomes
   visible to customers unasked.
+* It shows the **payment morale** of the company (see *Usage*).

@@ -150,3 +150,69 @@ class TestPortalOpenItems(HttpCase):
         report.with_user(self.user)._render_qweb_html(report.report_name, [self.company.id])
         with self.assertRaises(AccessError):
             report.with_user(self.user)._render_qweb_html(report.report_name, [self.other_company.id])
+
+    def _history(self, partner, days_before_due, age_days=60, due_days=14):
+        """Invoice of ``age_days`` ago with a ``due_days`` term, paid ``days_before_due`` days before its due date (negative = late)."""
+        today = fields.Date.today()
+        invoice_date = today - timedelta(days=age_days)
+        due = invoice_date + timedelta(days=due_days)
+        move = self.env["account.move"].create({
+            "move_type": "out_invoice", "partner_id": partner.id, "invoice_date": invoice_date, "invoice_date_due": due,
+            "invoice_line_ids": [Command.create(self._line("Moral", 10.0))],
+        })
+        move.action_post()
+        if days_before_due is not None:
+            self.env["account.payment.register"].with_context(
+                active_model="account.move", active_ids=move.ids).create(
+                {"payment_date": due - timedelta(days=days_before_due)}).action_create_payments()
+        return move
+
+    def test_payment_morale_classes(self):
+        firm = self.env["res.partner"].create({"name": "Moral GmbH", "is_company": True})
+        for paid in (3, 0, -5, -7, -20, -40):
+            self._history(firm, paid)
+        morale = firm._payment_morale(fields.Date.today())
+        self.assertEqual(morale["count"], 6)
+        self.assertEqual(morale["in_term"], 33)
+        self.assertEqual(morale["within_week"], 33)
+        self.assertEqual(morale["late"], 34)
+        self.assertEqual(morale["late_overdue"], 30)
+        self.assertEqual(morale["late_days"], 44)
+        self.assertFalse(morale["good"])
+        self.assertEqual(morale["max_open_days"], 0)
+
+    def test_payment_morale_open_invoices(self):
+        firm = self.env["res.partner"].create({"name": "Moral Offen GmbH", "is_company": True})
+        for _i in range(4):
+            self._history(firm, 1)
+        self._history(firm, None, age_days=10)                # open, not yet due: not rated
+        morale = firm._payment_morale(fields.Date.today())
+        self.assertEqual((morale["count"], morale["in_term"], morale["late"]), (4, 100, 0))
+        self.assertTrue(morale["good"])
+        self.assertEqual(morale["max_open_days"], 10)
+        self._history(firm, None, age_days=70)                # open, 56 days over the term
+        morale = firm._payment_morale(fields.Date.today())
+        self.assertEqual((morale["count"], morale["in_term"], morale["late"]), (5, 80, 20))
+        self.assertEqual(morale["max_open_days"], 70)
+        self.assertEqual(morale["max_open_overdue"], 56)
+        self.assertFalse(morale["good"], "an invoice overdue for more than 30 days makes the rating poor")
+
+    def test_payment_morale_without_invoices_and_other_company(self):
+        firm = self.env["res.partner"].create({"name": "Neu GmbH", "is_company": True})
+        self.assertEqual(firm._payment_morale(fields.Date.today())["count"], 0)
+        self.assertIsNone(firm._payment_morale(fields.Date.today())["good"])
+        self._history(self.other_company, 1)
+        self.assertEqual(firm._payment_morale(fields.Date.today())["count"], 0)
+
+    def test_payment_morale_is_shown_in_portal_and_report(self):
+        firm_contact = self.contact
+        firm_contact.portal_open_items = True
+        for paid in (2, 0, -20):
+            self._history(self.company, paid)
+        text = self._get("oi_chef", "oi_chef_pw").text
+        self.assertTrue("Payment morale" in text or "Zahlungsmoral" in text)
+        self.assertTrue("prepayment" in text or "Vorkasse" in text)
+        report = self.env.ref("portal_open_items.action_report_open_items")
+        html, _t = report._render_qweb_html(report.report_name, [self.company.id])
+        self.assertTrue(b"Payment morale" in html or b"Zahlungsmoral" in html)
+        self.assertTrue(b"prepayment" in html or b"Vorkasse" in html)

@@ -6,14 +6,35 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-05 17:16+0000\n"
-"PO-Revision-Date: 2026-11-05 17:16+0000\n"
+"POT-Creation-Date: 2026-11-06 08:47+0000\n"
+"PO-Revision-Date: 2026-11-06 08:47+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.morale_block
+msgid "% were paid in the week after the payment term."
+msgstr ""
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.morale_block
+msgid "% were paid later, on average after"
+msgstr ""
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.morale_block
+msgid "% were paid within the payment term."
+msgstr ""
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.report_open_items
+msgid "<b>Customers with poor payment morale are switched to prepayment.</b>"
+msgstr ""
 
 #. module: portal_open_items
 #: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
@@ -42,6 +63,12 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
 #: model_terms:ir.ui.view,arch_db:portal_open_items.report_open_items
 msgid "Balance"
+msgstr ""
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.morale_block
+msgid ""
+"Based on the invoices of the last 12 months and all invoices still open."
 msgstr ""
 
 #. module: portal_open_items
@@ -104,6 +131,16 @@ msgid "Includes all contacts of your company."
 msgstr ""
 
 #. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.morale_block
+msgid "Invoices have been open for up to"
+msgstr ""
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.morale_block
+msgid "No invoices of the last 12 months to rate."
+msgstr ""
+
+#. module: portal_open_items
 #: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
 #: model_terms:ir.ui.view,arch_db:portal_open_items.report_open_items
 msgid "Open"
@@ -148,6 +185,16 @@ msgid "Payment / credit"
 msgstr ""
 
 #. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.morale_block
+msgid "Payment morale"
+msgstr ""
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.morale_block
+msgid "Rating of the payment morale:"
+msgstr ""
+
+#. module: portal_open_items
 #: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
 msgid "Show"
 msgstr ""
@@ -181,7 +228,32 @@ msgid "You are not allowed to access these open items."
 msgstr ""
 
 #. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.morale_block
+msgid "days ("
+msgstr ""
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.morale_block
+msgid "days after the payment term)."
+msgstr ""
+
+#. module: portal_open_items
 #: model_terms:ir.ui.view,arch_db:portal_open_items.portal_my_open_items
 #: model_terms:ir.ui.view,arch_db:portal_open_items.report_open_items
 msgid "days overdue"
+msgstr ""
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.morale_block
+msgid "days."
+msgstr ""
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.morale_block
+msgid "good"
+msgstr ""
+
+#. module: portal_open_items
+#: model_terms:ir.ui.view,arch_db:portal_open_items.morale_block
+msgid "poor"
 msgstr ""

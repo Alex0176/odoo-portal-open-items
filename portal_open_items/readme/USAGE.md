@@ -10,3 +10,15 @@ are taken as they are now.
 
 A negative amount is a credit in favour of the customer (credit note, or a payment not yet allocated to an invoice).
 Check the open items of a company in the back office before enabling the option.
+
+**Payment morale.** Above the list (portal and PDF) the page shows how the company paid its invoices of the last
+12 months (customer invoices, instalments counted separately) plus all invoices still open:
+
+* green: share paid within the payment term;
+* orange: share paid in the week after the payment term (up to 7 days);
+* red: share paid later, with the average number of days after the invoice date (and after the payment term);
+* the number of days the oldest invoice has been open.
+
+Open invoices that are overdue count as of the cut-off date; open invoices not yet due are not rated. The rating is
+*good* when at least 70 % were paid in term or within the week and no open invoice is overdue for more than 30 days,
+otherwise *poor*. The footer says that customers with poor payment morale are switched to prepayment.

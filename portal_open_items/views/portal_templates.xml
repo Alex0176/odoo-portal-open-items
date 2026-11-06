@@ -21,6 +21,25 @@
         </xpath>
     </template>
 
+    <template id="morale_block" name="Payment morale">
+        <div class="mb-3 mt-2" t-if="morale">
+            <h5>Payment morale</h5>
+            <t t-if="morale['count']">
+                <div style="color: #198754;"><t t-out="morale['in_term']"/> % were paid within the payment term.</div>
+                <div style="color: #e8590c;"><t t-out="morale['within_week']"/> % were paid in the week after the payment term.</div>
+                <div t-if="morale['late']" style="color: #dc3545;"><t t-out="morale['late']"/> % were paid later, on average after <t t-out="morale['late_days']"/> days (<t t-out="morale['late_overdue']"/> days after the payment term).</div>
+            </t>
+            <div t-else="">No invoices of the last 12 months to rate.</div>
+            <div t-if="morale['max_open_days']">Invoices have been open for up to <t t-out="morale['max_open_days']"/> days.</div>
+            <div t-if="morale['good'] is not None" class="mt-2">
+                Rating of the payment morale:
+                <b t-if="morale['good']" style="color: #198754;">good</b>
+                <b t-else="" style="color: #dc3545;">poor</b>
+            </div>
+            <div class="small text-muted mt-1">Based on the invoices of the last 12 months and all invoices still open.</div>
+        </div>
+    </template>
+
     <template id="portal_my_open_items" name="Open items list">
         <t t-call="portal.portal_layout">
             <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mt-3 mb-2">
@@ -38,6 +57,7 @@
                 <a t-if="stichtag != today" href="/my/open-items" class="btn btn-link">Today</a>
             </form>
             <p class="text-muted">Includes all contacts of your company.</p>
+            <t t-call="portal_open_items.morale_block"/>
             <p t-if="not rows" class="alert alert-info">There are no open items.</p>
             <t t-if="rows" t-call="portal.portal_table">
                 <thead>
@@ -83,6 +103,7 @@
                 </tfoot>
             </t>
             <p class="small text-muted mt-3">A negative amount is a credit in your favour (credit note or payment not yet allocated to an invoice).</p>
+            <p class="small text-muted"><b>Customers with poor payment morale are switched to prepayment.</b></p>
         </t>
     </template>
 </odoo>
